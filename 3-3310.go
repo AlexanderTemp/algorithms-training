@@ -17,9 +17,16 @@ func dfsRec(adj [][]int, visited []bool, s int, res *[]int) {
 }
 
 func dfs(adj [][]int) []int {
-	visited := make([]bool, len(adj))
+	const TAM int = len(adj) 
+	visited := make([]bool, TAM)
 	res := []int{}
-	dfsRec(adj, visited, 0, &res)
+
+	for i := 0; i < TAM; i++ {
+		if visited[i] == false {
+			dfsRec(adj, visited, i, &res)
+		}
+	}
+
 	return res
 }
 
@@ -37,4 +44,12 @@ func minimumDistanceBest(nums []int) int {
 }
 
 func main3() {
+	const EX_1 int[] = {
+		{ 1, 2}, 
+		{0, 3 }, 
+		{2, 0 }, 
+		{  5, 4} 
+	}
+	
+	res := dfs()
 }
